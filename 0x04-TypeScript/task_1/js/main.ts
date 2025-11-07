@@ -34,3 +34,16 @@ const director1: Director = {
 };
 
 console.log(director1);
+
+// Interface for printTeacher function
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+// Implementation of printTeacher
+const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => {
+  return `${firstName.charAt(0)}. ${lastName}`;
+};
+
+// Example usage
+console.log(printTeacher('John', 'Doe')); // J. Doe
