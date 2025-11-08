@@ -99,7 +99,7 @@ interface TeacherInterface {
 }
 
 // Director class implementing DirectorInterface
-class Directors implements DirectorInterface {
+class Director implements DirectorInterface {
   workFromHome(): string {
     return 'Working from home';
   }
@@ -114,7 +114,7 @@ class Directors implements DirectorInterface {
 }
 
 // Teacher class implementing TeacherInterface
-class Teachers implements TeacherInterface {
+class Teacher implements TeacherInterface {
   workFromHome(): string {
     return 'Cannot work from home';
   }
@@ -129,11 +129,12 @@ class Teachers implements TeacherInterface {
 }
 
 // createEmployee function
-function createEmployee(salary: number | string): Directors | Teachers {
-  if (typeof salary === 'number' && salary < 500) {
-    return new Teachers();
+function createEmployee(salary: number | string): Director | Teacher {
+  // @ts-ignore
+  if (salary < 500) {
+    return new Teacher();
   }
-  return new Directors();
+  return new Director();
 }
 
 // Example usage
