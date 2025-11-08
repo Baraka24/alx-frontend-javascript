@@ -83,3 +83,61 @@ class StudentClass {
 const student1: StudentClassInterface = new StudentClass('John', 'Doe');
 console.log(student1.displayName()); // John
 console.log(student1.workOnHomework()); // Currently working
+
+// DirectorInterface with 3 methods
+interface DirectorInterface {
+  workFromHome(): string;
+  getCoffeeBreak(): string;
+  workDirectorTasks(): string;
+}
+
+// TeacherInterface with 3 methods
+interface TeacherInterface {
+  workFromHome(): string;
+  getCoffeeBreak(): string;
+  workTeacherTasks(): string;
+}
+
+// Director class implementing DirectorInterface
+class Directors implements DirectorInterface {
+  workFromHome(): string {
+    return 'Working from home';
+  }
+
+  getCoffeeBreak(): string {
+    return 'Getting a coffee break';
+  }
+
+  workDirectorTasks(): string {
+    return 'Getting to director tasks';
+  }
+}
+
+// Teacher class implementing TeacherInterface
+class Teachers implements TeacherInterface {
+  workFromHome(): string {
+    return 'Cannot work from home';
+  }
+
+  getCoffeeBreak(): string {
+    return 'Cannot have a break';
+  }
+
+  workTeacherTasks(): string {
+    return 'Getting to work';
+  }
+}
+
+// createEmployee function
+function createEmployee(salary: number | string): Directors | Teachers {
+  if (typeof salary === 'number' && salary < 500) {
+    return new Teachers();
+  }
+  return new Directors();
+}
+
+// Example usage
+console.log(createEmployee(200));
+console.log(createEmployee(1000));
+console.log(createEmployee('$500'));
+
