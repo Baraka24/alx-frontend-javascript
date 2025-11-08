@@ -1,5 +1,5 @@
-// Teacher interface
-interface Teacher {
+// TeacherData interface
+interface TeacherData {
   readonly firstName: string;
   readonly lastName: string;
   fullTimeEmployee: boolean;
@@ -8,13 +8,13 @@ interface Teacher {
   [propName: string]: any;
 }
 
-// Director interface extending Teacher
-interface Director extends Teacher {
+// DirectorData interface extending TeacherData
+interface DirectorData extends TeacherData {
   numberOfReports: number;
 }
 
 // Example usage
-const teacher3: Teacher = {
+const teacher3: TeacherData = {
   firstName: 'John',
   fullTimeEmployee: false,
   lastName: 'Doe',
@@ -24,8 +24,8 @@ const teacher3: Teacher = {
 
 console.log(teacher3);
 
-// Example for Director
-const director1: Director = {
+// Example for DirectorData
+const director1: DirectorData = {
   firstName: 'John',
   lastName: 'Doe',
   location: 'London',
