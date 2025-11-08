@@ -138,7 +138,7 @@ function createEmployee(salary: number | string): Director | Teacher {
 }
 
 // Type predicate to check if employee is a Director
-function isDirector(employee: Director | Teacher): employee is Director {
+export function isDirector(employee: Director | Teacher): employee is Director {
   return employee instanceof Director;
 }
 
@@ -159,3 +159,19 @@ console.log(createEmployee(200));
 console.log(createEmployee(1000));
 console.log(createEmployee('$500'));
 
+// Subjects string literal type
+type Subjects = "Math" | "History";
+
+// teachClass function
+export function teachClass(todayClass: Subjects): string {
+  if (todayClass === "Math") {
+    return "Teaching Math";
+  } else if (todayClass === "History") {
+    return "Teaching History";
+  }
+  return "";
+}
+
+// Example usage
+console.log(teachClass('Math'));     // Teaching Math
+console.log(teachClass('History'));  // Teaching History
