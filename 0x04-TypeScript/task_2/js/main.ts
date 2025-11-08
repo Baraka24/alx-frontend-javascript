@@ -162,11 +162,12 @@ console.log(createEmployee('$500'));
 // Subjects string literal type
 type Subjects = "Math" | "History";
 
-// teachClass function
+// teachClass function with exact signature "todayClass:Subjects"
 export function teachClass(todayClass: Subjects): string {
   if (todayClass === "Math") {
     return "Teaching Math";
-  } else if (todayClass === "History") {
+  }
+  if (todayClass === "History") {
     return "Teaching History";
   }
   return "";
